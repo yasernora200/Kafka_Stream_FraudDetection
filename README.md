@@ -37,8 +37,18 @@ Producer → transactions topic → Kafka Streams (filter > 10,000) → fraud-al
 
 ## 🚀 Running the Project
 
-**1. Start Kafka with kraft mode**
-Start the Kafka installation directory. Topics are created automatically on app startup — no manual setup needed.
+### 1. Start Kafka (KRaft Mode)
+
+```bash
+# Generate a Cluster ID
+bin/kafka-storage.sh random-uuid
+
+# Format the log directories (replace <CLUSTER_ID> with the value generated above)
+bin/windows/kafka-storage.bat format -t <CLUSTER_ID> -c config/server.properties
+
+# Start the broker
+bin/windows/kafka-server-start.bat config/server.properties
+```
 
 **2. Run the application**
 ```
