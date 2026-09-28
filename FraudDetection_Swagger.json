@@ -1,0 +1,70 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fraud Detection API",
+    "description": "API Documentation for Kafka Fraud Detection & Streaming Service",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9191",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/api/transactions": {
+      "post": {
+        "tags": [
+          "transaction-controller"
+        ],
+        "summary": "Generate and Publish 50 Random Transactions to Kafka",
+        "operationId": "sendTransaction",
+        "responses": {
+          "200": {
+            "description": "Transactions generated and sent successfully",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "✅ Transaction sent to Kafka!"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "example": "txn-1727563080000-0"
+          },
+          "userId": {
+            "type": "string",
+            "example": "USER_0"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "example": 10500.75
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2026-09-29T00:38:00.123456"
+          }
+        },
+        "required": [
+          "transactionId",
+          "userId",
+          "amount",
+          "timestamp"
+        ]
+      }
+    }
+  }
+}
