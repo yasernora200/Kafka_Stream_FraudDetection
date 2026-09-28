@@ -37,8 +37,8 @@ Producer → transactions topic → Kafka Streams (filter > 10,000) → fraud-al
 
 ## 🚀 Running the Project
 
-**1. Start Zookeeper and Kafka**
-Start both from the Kafka installation directory. Topics are created automatically on app startup — no manual setup needed.
+**1. Start Kafka with kraft mode**
+Start the Kafka installation directory. Topics are created automatically on app startup — no manual setup needed.
 
 **2. Run the application**
 ```
